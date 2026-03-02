@@ -10,6 +10,7 @@
 #include"rule_of_five.h"
 #include"virtual_function_rtPoly.h"
 #include"singleton.h"
+#include"Arrays/MoveZeroes.hpp"
 
 int main()
 {
@@ -23,6 +24,12 @@ int main()
     //test_rule_of_five();
     //test_virtual_function();
     //test_abstract_class();
-    runSimpleSingleton();
+    //runSimpleSingleton();
+
+    // Test MoveZeroes
+    MoveZeroes mz;
+    vector<int> nums = {0, 1, 0, 3, 12};
+    //mz.movezeros_sol1(nums);
+    mz.movezeros_sol2(nums);
 }
 

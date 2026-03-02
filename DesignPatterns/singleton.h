@@ -6,12 +6,29 @@
 
 /*Singleton Pattern
 * ------------------
-The Singleton pattern is a creational design pattern that ensures a class has only one instance (object) throughout the program’s lifetime.
+The Singleton pattern is a creational design pattern that ensures a class has only one instance (object) throughout the programï¿½s lifetime.
 It provides a global access point to this single instance.
 */
 
 /*Non Thread Safe Singleton */
 
+/**
+ * @class Singleton1
+ * @brief Implements the Singleton design pattern (non-thread-safe version).
+ *
+ * This class ensures that only one instance of Singleton1 can exist.
+ * The constructor is private to prevent direct instantiation.
+ * Copy constructor and copy assignment operator are deleted to prevent copying.
+ * The instance is created lazily upon the first call to getInstance().
+ *
+ * @note This implementation is NOT thread-safe. In a multithreaded environment,
+ *       race conditions may occur when multiple threads call getInstance() simultaneously.
+ *
+ * Usage:
+ * @code
+ * Singleton1* s = Singleton1::getInstance();
+ * @endcode
+ */
 class Singleton1 {
 private:
 	Singleton1() {		// Private constructor to prevent direct instantiation
@@ -32,7 +49,7 @@ public:
 	}
 };
 Singleton1* Singleton1::instance = nullptr;
-/*The reason it’s not thread safe is because if two threads call getInstance() method at the same time(concurrently) 
+/*The reason itï¿½s not thread safe is because if two threads call getInstance() method at the same time(concurrently) 
   when instance is nullptr, both will proceed to create a new instance, violating the Singleton pattern.*/
 
 class SingletonThreadSafe {
