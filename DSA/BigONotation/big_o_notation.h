@@ -29,6 +29,7 @@ There’s no looping, no scanning. You jump directly to the value using its inde
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
 //#include <ncurses.h>
 //------------------------------------------------------
 /* 2) Logarithmic Time – O(log n)
@@ -61,24 +62,35 @@ int binarySearch(std::vector<int> &a, int key) {
 }
 
 void run_binarySearch() {
- std::vector <int> input_data;
- const int ESC=27;
+ std::vector<int> input_data;
+ std::cout << "Running binary search\n";
+ std::cout << "Enter integers (type any non-number like q to finish):\n";
+
  int temp;
- std::cout<<"Running binary search"<<std::endl;
- std::cout<<"Enter the number in Vector:(Press Esc to finish Input process)"<<std::endl;
- while (true) {
-  std::cin>>temp;
-  if (temp==ESC) {break;}
+ while (std::cin >> temp) {
   input_data.push_back(temp);
  }
- std::cout<<"vector content :"<<std::endl;
- for (int i =0; i<input_data.size();i++){std::cout<<input_data[i]<<" ";}
- std::cout<<std::endl;
- int key = 0;
- std::cout<<"Enter the key K ="<<std::endl;
- std::cin>>key;
- std::cout<<"Executing binary search"<<std::endl;
- int index = binarySearch(input_data, key);
- std::cout<<index<<" ";
 
+ // clear fail state and bad token so we can read key
+ std::cin.clear();
+ std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // flush rest of line [web:33]
+
+ if (input_data.empty()) {
+  std::cout << "No data entered\n";
+  return;
+ }
+
+ std::sort(input_data.begin(), input_data.end());  // required for binary search correctness [web:4]
+
+ std::cout << "vector content:\n";
+ for (int x : input_data) std::cout << x << " ";
+ std::cout << "\n";
+
+ int key = 0;
+ std::cout << "Enter the key K = ";
+ std::cin >> key;
+
+ std::cout << "Executing binary search\n";
+ int index = binarySearch(input_data, key);
+ std::cout << index << "\n";
 }

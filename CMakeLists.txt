@@ -75,4 +75,6 @@ include_directories(
     "${CMAKE_CURRENT_SOURCE_DIR}/SourceFiles"
 )
 # Create an executable target
-add_executable(cpp_study ${ALL_SOURCES})
+add_executable(cpp_study ${ALL_SOURCES}
+        DSA/BigONotation/big_o_notation.h
+        DSA/Arrays/arrays.h)
