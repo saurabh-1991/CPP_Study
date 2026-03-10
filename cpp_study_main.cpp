@@ -11,6 +11,8 @@
 #include"virtual_function_rtPoly.h"
 #include"singleton.h"
 #include"Arrays/MoveZeroes.hpp"
+#include"Arrays/MajorityElements.hpp"
+#include"string/stringCompression_433.hpp"
 
 int main()
 {
@@ -27,9 +29,18 @@ int main()
     //runSimpleSingleton();
 
     // Test MoveZeroes
-    MoveZeroes mz;
-    vector<int> nums = {0, 1, 0, 3, 12};
-    //mz.movezeros_sol1(nums);
-    mz.movezeros_sol2(nums);
+    // MoveZeroes mz;
+    // vector<int> nums = {0, 1, 0, 3, 12};
+    // //mz.movezeros_sol1(nums);
+    // mz.movezeros_sol2(nums);
+    // Test MajorityElements
+    // MajorityElements me;
+    // std::vector<int> nums = {2, 2, 1, 1, 1, 2, 2};
+    // int majority = me.majorityElement_sol1(nums);
+    // std::cout << "Majority element: " << majority << std::endl;
+    // Test Compress String
+    std::vector<char> chars = {'a','a','b','b','c','c','c'};
+    int newLength = StringCompression(chars);
+    std::cout << "Compressed length: " << newLength << std::endl;
 }
 
